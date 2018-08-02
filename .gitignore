@@ -2,6 +2,9 @@
 *.htm
 *.html
 *.pdf
+*.png
+*.jpg
+*.jpeg
 Untitled*.ipynb
 
 # Byte-compiled / optimized / DLL files
