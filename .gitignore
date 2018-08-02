@@ -1,3 +1,9 @@
+# web files and generated pdf files
+*.htm
+*.html
+*.pdf
+Untitled*.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
