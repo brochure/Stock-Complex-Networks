@@ -2,7 +2,7 @@
 *.htm
 *.html
 *.pdf
-*.png
+# *.png
 *.jpg
 *.jpeg
 Untitled*.ipynb
