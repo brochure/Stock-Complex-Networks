@@ -14,12 +14,12 @@ for idx in rdm_idx:
     
 df_rdm_pair = pd.DataFrame(rdm_pair)
 df_rdm_pair.columns = ['i', 'j']
-df_rdm_pair.to_csv(ROOTPATH + r'/Stock_DWCN/Source/DF_RDM_PAIR_0612.csv', index=False)
+df_rdm_pair.to_csv(ROOTPATH + r'/Source/DF_RDM_PAIR_0612.csv', index=False)
 '''
 
-FILE_RDM_PAIR = ROOTPATH + r'/Stock_DWCN/Source/DF_RDM_PAIR_0612.csv'
+FILE_RDM_PAIR = ROOTPATH + r'/Source/DF_RDM_PAIR_0612.csv'
 df_rdm_pair = pd.read_csv(FILE_RDM_PAIR)
-FILE_RES_SAMPLE = ROOTPATH + r'/Stock_DWCN/Source/RES_SAMPLE_0613.csv'
+FILE_RES_SAMPLE = ROOTPATH + r'/Source/RES_SAMPLE_0613.csv'
 res_sample = pd.read_csv(FILE_RES_SAMPLE)
 lst_rdm_pair = np.array(df_rdm_pair).tolist()
 srs_res_sample = res_sample['res']

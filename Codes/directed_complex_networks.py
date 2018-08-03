@@ -102,13 +102,13 @@ df_stock_abr = pd.DataFrame(index=sri_SP500_log_return.index, columns=lst_ticker
 for tckr in lst_tickers_stp:
      df_stock_abr[tckr] = DICT_STP[tckr]['log_return'] - df_stock_abr_coef.loc[tckr, 'beta_0'] - df_stock_abr_coef.loc[tckr, 'beta_1'] * sri_SP500_log_return
 
-df_stock_abr.to_csv(ROOTPATH + r'/Stock_DWCN/Source/DF_STOCK_ABR.csv')
+df_stock_abr.to_csv(ROOTPATH + r'/Source/DF_STOCK_ABR.csv')
 '''
 ###------------ Read Files ------------###
-FILE_EIO_2016 = ROOTPATH + '/Stock_DWCN/Source/lxl/EIO_2016.csv'
+FILE_EIO_2016 = ROOTPATH + r'/Source/lxl/EIO_2016.csv'
 EIO_matrix = np.matrix(np.genfromtxt(open(FILE_EIO_2016, 'rb'), delimiter=',', skip_header=2))
 EIO_industry_BEA_code_list = list(pd.read_csv(FILE_EIO_2016, nrows=0).columns)[:-2]
-FILE_STOCK_ABR = ROOTPATH + r'/Stock_DWCN/Source/DF_STOCK_ABR.csv'
+FILE_STOCK_ABR = ROOTPATH + r'/Source/DF_STOCK_ABR.csv'
 df_stock_abr = pd.read_csv(FILE_STOCK_ABR).set_index('Date')
 df_stock_normal_return = pd.DataFrame(index=df_stock_abr.index, columns=df_stock_abr.columns)
 for i in DICT_STP: df_stock_normal_return[i] = DICT_STP[i]['log_return']
@@ -197,7 +197,7 @@ ax.set_ylabel('Transaction density')
 ax.set_title('Direct Demand', fontsize='large')
 ax.plot(theta_thresholds_DD, edge_densities_DD, color='blue', lw=2)
 fig.tight_layout()
-#fig.savefig(ROOTPATH + '/Stock_DWCN/Transaction_density_0.pdf', bbox_inches='tight')
+#fig.savefig(ROOTPATH + '/Transaction_density_0.pdf', bbox_inches='tight')
             
 df_combined_thresholds = combineThresholds(
     theta_thresholds_DR,
@@ -213,7 +213,7 @@ sns.heatmap(pt.iloc[:20,:20], cmap='rainbow', linewidths = 0.05, ax = ax)
 ax.set_title('Amounts of directions per DR-threshold and DD-threshold')
 ax.set_xlabel('theta_DD')
 ax.set_ylabel('theta_DR')
-#f.savefig(ROOTPATH + '/Stock_DWCN/sns_heatmap_theta_small.pdf', bbox_inches='tight')
+#f.savefig(ROOTPATH + '/sns_heatmap_theta_small.pdf', bbox_inches='tight')
 
 ###------------ -------------------------- ------------###
 
@@ -348,7 +348,7 @@ plt.axis([-0.35, 1, 0, 3.1])
 plt.xlabel('correlation')
 plt.ylabel('p(correlation)')
 plt.title('correlation coefficient distribution')
-#plt.savefig(ROOTPATH + '/Stock_DWCN/correlation_coefficient_distribution_0.pdf', bbox_inches='tight')
+#plt.savefig(ROOTPATH + '/correlation_coefficient_distribution_0.pdf', bbox_inches='tight')
 
 describe(corr_coef_CN)
 
@@ -359,7 +359,7 @@ ax.plot(theta_thresholds_corr, edge_densities_corr, color='blue', lw=2)
 plt.xlabel('correlation coefficient threshold')
 plt.ylabel('edge density')
 plt.title('stock correlation network edge density')
-#fig.savefig(ROOTPATH + '/Stock_DWCN/stock_correlation_network_edge_density_0.pdf', bbox_inches='tight')
+#fig.savefig(ROOTPATH + r'/stock_correlation_network_edge_density_0.pdf', bbox_inches='tight')
 
 ###------------ Unweighted Directed Netwrok Analysis ------------###
 ### Frequency distributions
@@ -380,7 +380,7 @@ def plotDegreeDistributeion(G, density=1, degree_type='overall', no_bins=50, sav
     if save_file is not None:
         plt.savefig(
             ROOTPATH +
-            '/Stock_DWCN/%s_degree_distribution_distribution_%s.pdf' %
+            '/%s_degree_distribution_distribution_%s.pdf' %
             (degree_type, save_file),
             bbox_inches='tight')
 

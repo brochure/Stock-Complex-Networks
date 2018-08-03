@@ -5,7 +5,7 @@ from requests.auth import HTTPBasicAuth
 from core import SendEmail, Polygonal, Triangular, ROOTPATH
 from preprocess_stocks import lst_tickers_stp, LENTCKR, LENTRGL
 
-FILE_TICKER_FDMTL = ROOTPATH + r'/Stock_DWCN/Source/DF_FDMTL_0609.csv'
+FILE_TICKER_FDMTL = ROOTPATH + r'/Source/DF_FDMTL_0609.csv'
 df_fdmtl = pd.read_csv(FILE_TICKER_FDMTL).set_index('ticker')
 
 AUTHKEYPAIR = [
@@ -74,4 +74,4 @@ for tck in lst_tickers_stp:
     df_fdmtl.loc[tck, 'beta'] = sis_avg[tck]
 
 df_fdmtl.index.name = 'ticker'
-df_fdmtl.to_csv(ROOTPATH + r'/Stock_DWCN/Source/DF_FDMTL_0609.csv')
+df_fdmtl.to_csv(ROOTPATH + r'/Source/DF_FDMTL_0609.csv')

@@ -14,8 +14,8 @@ from contextlib import contextmanager
 from core import SendEmail, ROOTPATH
 pd.set_option('expand_frame_repr', False)
 pd.set_option('display.max_rows', 10)
-FILE_PRICES_ENTIRE = ROOTPATH + r'/Stock_DWCN/Source/industry_code/WIKI_PRICES_ENTIRE.csv'
-FILE_CROSSWALK = ROOTPATH + r'/Stock_DWCN/Source/industry_code/SIC-to-NAICS-Crosswalk.csv'
+FILE_PRICES_ENTIRE = ROOTPATH + r'/Source/industry_code/WIKI_PRICES_ENTIRE.csv'
+FILE_CROSSWALK = ROOTPATH + r'/Source/industry_code/SIC-to-NAICS-Crosswalk.csv'
 
 def query_country(symbol):
     url = 'https://finance.yahoo.com/quote/' + symbol + '/profile?p=' + symbol
@@ -73,4 +73,4 @@ for ambo in lst_ambo_entire:
 
 df_dict = pd.DataFrame.from_dict(dict_ambo, orient='index')
 df_dict.columns = ['ticker', 'NAICS']
-df_dict.to_csv(r'/Stock_DWCN/Source/industry_code/TICKER-to-NAICS-Dict.csv')
+df_dict.to_csv(ROOTPATH + r'/Source/industry_code/TICKER-to-NAICS-Dict.csv')

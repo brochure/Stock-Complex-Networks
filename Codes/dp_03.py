@@ -14,7 +14,7 @@ from preprocess_stocks import lst_tickers_stp, LENTCKR, LENTRGL, df_codes_and_ti
 pd.set_option('expand_frame_repr', False)
 pd.set_option('display.max_rows', 25)
 
-FILE_EIO_2016 = ROOTPATH + '/Stock_DWCN/Source/lxl/EIO_2016.csv'
+FILE_EIO_2016 = ROOTPATH + r'/Source/lxl/EIO_2016.csv'
 #####
 
 # chosen_tickers = np.random.choice(lst_tickers_stp, 50, replace=False)
@@ -189,5 +189,5 @@ SendEmail('ieas')
 lst2d_fdmtl = SrcFdmtls(df_fdmtl)
 for i in range(len(df_fdmtl.columns)):
     df_source[df_fdmtl.columns[i]] = lst2d_fdmtl[i]
-df_source.to_csv(ROOTPATH + r'/Stock_DWCN/Source/DF_SOURCE_0530.csv')
+df_source.to_csv(ROOTPATH + r'/Source/DF_SOURCE_0530.csv')
 SendEmail('to_csv')
